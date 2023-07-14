@@ -1,0 +1,23 @@
+.alert {
+    padding: 1rem 1.5rem;
+    border-left-width: .5rem;
+    border-left-style: solid;
+    margin: 1rem 0;
+    position: relative;
+    border-bottom-right-radius: 2px;
+    border-top-right-radius: 2px;
+    
+    &.primary {
+        border-color: #42b983;
+        background-color: #f8f8f8;
+    }
+
+    &.warning {
+        border-color: #c25205;
+        background-color: #f8f8f8;
+    }
+
+    &__text {
+        color: #222;
+    }
+}
