@@ -101,8 +101,20 @@ class UserController extends ADisplayController {
         
             if ($message == '' ) {
                 $errors[] = "Текст заявки"  . $errorText;
+            } 
+
+            if (!preg_match("/[0-9a-z_]+@[0-9a-z_^\.]+\.[a-z]{2,3}/i", $email)) {
+                $errors[] = 'Неверно введен е-mail';
             }
-        
+
+            if (mb_strlen($address) < 5) {
+                $errors[] = "Недопустимая длина адреса (минимум 5 символов)";
+            }
+
+            if (mb_strlen($message) < 5) {
+                $errors[] = "Недопустимая длина сообщения(минимум 5 символов)";
+            }
+            
             if (!empty($errors)) {
                 $_SESSION['postUser'] = $post;
                 $this->app->flash('error', '<div class="alert warning"><p class="alert__text">' . array_shift($errors) . '</p></div>');
